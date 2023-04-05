@@ -8,6 +8,7 @@ html {
   background-size: cover;
   z-index:0;
   overflow: hidden;
+  cursor: url('../assets/hammer.png'), auto;
 }
 
 h1 {
