@@ -208,7 +208,7 @@ function updateTimer() {
   // TODO: Write your code here.
   if (timer > 0) {
     time -= 1;
-    timerDisplay.textContent = timer;
+    timerDisplay.textContent = time;
   console.log("timer",timer)
   console.log("time",time)
   } 
