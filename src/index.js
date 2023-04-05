@@ -84,7 +84,7 @@ function chooseHole(holes) {
   // TODO: Write your code here.
   const index = randomInteger(0, 8)
   const hole = holes[index]
-  if (hole === lastHole) { chooseHole(holes) }
+  if (hole === lastHole) { return chooseHole(holes) }
   else {
     lastHole = hole
     return hole
@@ -278,7 +278,7 @@ function setDuration(duration) {
 *
 */
 function stopGame() {
-  // stopAudio(song);  //optional
+  stopAudio(song);  //optional
   clearInterval(timer);
   //time = 0;
   return "game stopped";
@@ -295,6 +295,7 @@ function startGame() {
   setDuration(10);
   showUp();
   startTimer();
+  clearScore();
   return "game started";
 }
 
