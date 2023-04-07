@@ -8,7 +8,7 @@ const audioHit = new Audio('./assets/hit.mp3');
 const song = new Audio('./assets/molesong.mp3');
 
 let time = 0;
-let timer;
+let timer = 10;
 let lastHole = 0;
 let points = 0;
 let difficulty = "hard";
@@ -135,7 +135,7 @@ function gameOver() {
 *
 */
 function showUp() {
-  let delay = setDelay("easy"); // TODO: Update so that it uses setDelay()
+  let delay = setDelay(difficulty); // TODO: Update so that it uses setDelay()
   const hole = chooseHole(holes);  // TODO: Update so that it use chooseHole()
   return showAndHide(hole, delay);
 }
@@ -208,6 +208,7 @@ function updateTimer() {
   // TODO: Write your code here.
   if (timer > 0) {
     time -= 1;
+    timer += 1;
     timerDisplay.textContent = time;
   console.log("timer",timer)
   console.log("time",time)
@@ -241,8 +242,8 @@ function startTimer() {
 function whack(event) {
   // TODO: Write your code here.
   console.log("wack!")
-  playAudio(audioHit)
   updateScore();
+  playAudio(audioHit);
   return points;
 }
 
@@ -292,10 +293,11 @@ function stopGame() {
 */
 function startGame() {
   loopAudio(song)
-  setDuration(10);
+  setDuration(timer);
   showUp();
   startTimer();
   clearScore();
+  setEventListeners();
   return "game started";
 }
 
